@@ -15,7 +15,7 @@
 
 ### Load Balancer Strategy
 
-The server includes a load balancer that distributes requests between multiple simple servers (see below). Requests are sent to the load balancer via the API at `localhost:8000`. The load balancer uses a "round-robin" load balancing strategy, sending requests to each simple server in turn, starting with the first server in the list.
+The server includes a load balancer that distributes requests between multiple simple servers (see below). Requests are sent to the load balancer via the API at `localhost:8000`. The load balancer uses a "round-robin" load balancing strategy, sending requests to each simple server in turn, starting with the first server in the list `localhost:8081`
 
 ### Libraries Used
 
