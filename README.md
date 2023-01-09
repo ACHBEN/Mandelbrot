@@ -15,7 +15,15 @@
 
 ### Load Balancer Strategy
 
-The server includes a load balancer that distributes requests between multiple simple servers (see below). Requests are sent to the load balancer via the API at `localhost:8000`. The load balancer uses a "round-robin" load balancing strategy, sending requests to each simple server in turn, starting with the first server in the list `localhost:8081`
+The load balancer implemented in the server allows vertical scalability through the use of workers with goroutines. And horizontal scalability via the distribution of requests between different servers. The loadbalancer uses a "round-robin" load balancing strategy,sending the request/task to each simple server/worker in turn.
+
+#### Vertical scalability 
+
+For each line of pixels in the image generated in the route `/mandelbrot` , there is a go routine which is launched and which makes a different worker work (which represents a CPU core. As a result, the workload is evenly distributed between each core.
+
+#### Horizontal scalability
+
+The requests are distributed  between multiple simple servers starting with the first server in the list `localhost:8081`. Requests are sent to the load balancer via the API at `localhost:8000`.  
 
 ### Libraries Used
 
